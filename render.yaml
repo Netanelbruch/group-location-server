@@ -1,9 +1,9 @@
 services:
   - type: web
-    name: location-server
+    name: group-location-server
     env: python
     buildCommand: ""
-    startCommand: gunicorn server:app --bind 0.0.0.0:$PORT
+    startCommand: gunicorn server:server --bind 0.0.0.0:$PORT
     plan: free
     envVars:
       - key: PYTHON_VERSION
