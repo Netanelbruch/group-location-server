@@ -5,7 +5,6 @@ import time
 server = Flask(__name__)
 CORS(server)
 
-# נשמור את כל המיקומים של המשתמשים בזיכרון
 locations = {}
 
 @server.route("/")
@@ -19,11 +18,7 @@ def update_location():
     lat = data.get("lat")
     lon = data.get("lon")
     if user and lat and lon:
-        locations[user] = {
-            "lat": lat,
-            "lon": lon,
-            "last_update": time.time()
-        }
+        locations[user] = {"lat": lat, "lon": lon, "last_update": time.time()}
         return jsonify({"status": "success"}), 200
     return jsonify({"status": "error", "message": "missing data"}), 400
 
