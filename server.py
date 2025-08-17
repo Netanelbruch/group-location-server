@@ -3,7 +3,7 @@ from flask_cors import CORS
 import time
 
 server = Flask(__name__)
-CORS(app)
+CORS(server)
 
 # נשמור את כל המיקומים של המשתמשים בזיכרון
 locations = {}
